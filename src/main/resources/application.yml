@@ -1,0 +1,26 @@
+server:
+    port: 9001
+
+
+spring:
+    main:
+        lazy-initialization: true
+    application:
+        name: 'study-platform'
+    datasource:
+        hikari:
+            maximum-pool-size: 50
+            connection-timeout: 30000
+            idle-timeout: 30000
+            max-lifetime: 590000
+            minimum-idle: 5
+            connection-test-query: "select 1"
+            connection-init-sql: set names utf8mb4
+        url: 'jdbc:mysql://localhost:3306/study-platform?useLegacyDatetimeCode=false&characterEncoding=utf8'
+        username: 'root'
+        password:
+    flyway:
+        table: core_schema_version
+        encoding: UTF-8
+        locations:
+            - classpath:db/migration
